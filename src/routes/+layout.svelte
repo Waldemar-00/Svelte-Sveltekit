@@ -1,42 +1,38 @@
 <script>
 	// @ts-nocheck
-
 	let toggle = 'none';
-	let around = '0';
 	function toggleDisplay() {
-		if (toggle === 'none') {
-			toggle = 'flex';
-			around = '0.8rem 1.5rem';
-		} else {
-			toggle = 'none';
-			around = '0';
-		}
+		if (toggle === '0') toggle = '1';
+		else toggle = '0';
 	}
 </script>
 
-<button class="spred" on:click={toggleDisplay}>Navigation</button>
-<nav style="--toggle:{toggle}; --around:{around}">
-	<a href="/about/?size=43" on:click={toggleDisplay}>about</a>
-	<a href="/" on:click={toggleDisplay}>main</a>
-	<a href="/" on:click={toggleDisplay}>main</a>
-	<a href="/" on:click={toggleDisplay}>main</a>
-	<a href="/" on:click={toggleDisplay}>main</a>
-	<a href="/" on:click={toggleDisplay}>main</a>
-	<a href="/" on:click={toggleDisplay}>main</a>
+<nav style="--toggle:{toggle}">
+	<button class="spred" on:click={toggleDisplay}>Client Nav</button>
+	<a href="/about/?size=43">about</a>
+	<a href="/">main</a>
+	<a href="/">main</a>
+	<a href="/">main</a>
+	<a href="/">main</a>
+	<a href="/">main</a>
+	<a href="/">main</a>
 </nav>
 <slot></slot>
 
 <style>
 	nav {
-		display: flex;
-		flex-direction: column;
+		display: inline-flex;
+		align-items: center;
 		gap: 1rem;
-		position: absolute;
+		position: relative;
 		left: 0;
+		top: 0;
 		background-color: bisque;
-		padding: var(--around);
 		border-radius: 2rem;
-		width: 90vw;
+		width: 99vw;
+	}
+	:global(a) {
+		text-decoration: none;
 	}
 	nav a,
 	.spred {
@@ -44,14 +40,15 @@
 		background-color: #eee;
 		border-radius: 2rem;
 		border: none;
-		width: 15vw;
 		font-size: 1.5rem;
-		text-decoration: none;
+		color: rgb(42, 42, 42);
 	}
 	nav a {
-		display: var(--toggle);
+		opacity: var(--toggle);
+		padding: 0.2rem 1.5rem;
+		transition: all 700ms;
 	}
-	.spred {
-		margin-bottom: 1rem;
+	nav {
+		margin-bottom: 1.5rem;
 	}
 </style>

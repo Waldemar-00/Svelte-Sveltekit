@@ -11,9 +11,6 @@
 	Is the data equal to the $page.data? <pre> {data === $page.data}</pre>
 	<!--&nbsp;-->
 </h2>
-<nav>
-	<a href="/about/?size=7">about</a>
-</nav>
 
 <style>
 	h2 pre {
