@@ -16,6 +16,10 @@
 	<a href="/">main</a>
 	<a href="/">main</a>
 	<a href="/">main</a>
+	<a href="/">main</a>
+	<a href="/">main</a>
+	<a href="/">main</a>
+	<a href="/login" class="login">login/out</a>
 </nav>
 <slot></slot>
 
@@ -50,5 +54,10 @@
 	}
 	nav {
 		margin-bottom: 1.5rem;
+	}
+	.login {
+		opacity: 1;
+		position: relative;
+		left: 100px;
 	}
 </style>
