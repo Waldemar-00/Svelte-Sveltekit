@@ -2,6 +2,7 @@
 	// @ts-nocheck
 
 	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
 	export let data;
 	let email = '';
 	afterNavigate(() => {
@@ -19,6 +20,9 @@
 	};
 </script>
 
+{#if $page.status === 401}
+	<h1 class="fail">{@html $page.form.message}</h1>
+{/if}
 {#if !data?.email}
 	<dialog>
 		<form action="?/post" method="POST">
@@ -40,6 +44,9 @@
 {/if}
 
 <style>
+	.fail {
+		text-align: center;
+	}
 	dialog {
 		width: 50vw;
 		height: 20vh;

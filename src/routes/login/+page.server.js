@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { _PASS_WORD } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 export const load = async ({cookies}) =>
 {
   const email =  await cookies.get( 'email' );
@@ -19,7 +20,9 @@ export const actions = {
       cookies.set('email', email, {path: '/'})
       return {success: true, message: email}
     }
-    return {success: false, message: 'Wrong password!'}
+    // return {success: false, message: 'Wrong password!'}
+    return fail( 401, {
+      message: '<pre>Wrong password!<br>Try again.</pre> '})
   },
   delete: async ( { cookies } ) =>
   {
