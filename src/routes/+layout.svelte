@@ -1,6 +1,7 @@
 <script>
 	// @ts-nocheck
 	let toggle = 'none';
+	let check = false;
 	function toggleDisplay() {
 		if (toggle === '0') toggle = '1';
 		else toggle = '0';
@@ -9,8 +10,8 @@
 
 <nav style="--toggle:{toggle}">
 	<button class="spred" on:click={toggleDisplay}>Client Nav</button>
-	<a href="/about/?size=43">about</a>
 	<a href="/">main</a>
+	<a href="/about/?size=43">about</a>
 	<a href="/">main</a>
 	<a href="/">main</a>
 	<a href="/">main</a>
@@ -22,6 +23,19 @@
 	<a href="/login" class="login">login/out</a>
 </nav>
 <slot></slot>
+
+<!-- <dialog>
+	<form action="">
+		<label>
+			allow
+			<input type="checkbox" checked={check} />
+		</label>
+		<p>
+			We want to use cookies for stable site work. <br /> You can allow the cookies or disagree.
+		</p>
+		<button>disagree</button>
+	</form>
+</dialog> -->
 
 <style>
 	nav {

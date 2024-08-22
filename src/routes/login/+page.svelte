@@ -3,6 +3,8 @@
 
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { applyAction, enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 	export let data;
 	let email = '';
 	afterNavigate(() => {
@@ -25,12 +27,36 @@
 {/if}
 {#if !data?.email}
 	<dialog>
-		<form action="?/post" method="POST">
+		<form
+			action="?/post"
+			method="POST"
+			use:enhance={async ({ formData, action, cancel, form, submitter }) => {
+				// console.log(formData);
+				// console.log(action);
+				// console.log(cancel);
+				// console.log(form);
+				// console.log(submitter);
+				//! You can change the formData here before sending!
+				//___________________________________
+				//After request. Result.data contains status, success, message from server.
+				return async ({ result, update }) => {
+					console.log(result);
+					if (result.type === 'success') update(result);
+					else await applyAction(result);
+				};
+			}}
+		>
 			<label title="email"
-				><input type="email" name="email" placeholder="...@example.com" bind:value={email} /></label
+				><input
+					type="email"
+					name="email"
+					placeholder="...@example.com"
+					bind:value={email}
+					required
+				/></label
 			>
 			<label title="password"
-				><input type="password" name="password" placeholder="password" /></label
+				><input type="password" name="password" placeholder="password" required /></label
 			>
 			<button>submit</button>
 		</form>
