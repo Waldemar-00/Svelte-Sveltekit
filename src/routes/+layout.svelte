@@ -19,7 +19,7 @@
 	<a href="/">main</a>
 	<a href="/">main</a>
 	<a href="/">main</a>
-	<a href="/">main</a>
+	<a href="/searcher">searcher</a>
 	<a href="/login" class="login">login/out</a>
 </nav>
 <slot></slot>

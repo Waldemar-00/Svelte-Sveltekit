@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { applyAction, enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
@@ -41,8 +41,10 @@
 				//After request. Result.data contains status, success, message from server.
 				return async ({ result, update }) => {
 					console.log(result);
-					if (result.type === 'success') update(result);
-					else await applyAction(result);
+					if (result.type === 'success') {
+						update(result);
+						// invalidateAll(); ???????????????
+					} else await applyAction(result);
 				};
 			}}
 		>
@@ -100,7 +102,6 @@
 		text-align: center;
 		color: #757575;
 		cursor: pointer;
-		/* display: none; */
 	}
 	button:hover {
 		border-radius: 0.4rem;
