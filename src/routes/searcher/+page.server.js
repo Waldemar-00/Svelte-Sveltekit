@@ -1,20 +1,28 @@
 // @ts-nocheck
 // import { deserialize } from '$app/forms';
-import {items} from "../../db/items.js"
+import { items } from "../../db/items.js"
+let searchItems = [];
 export async function load ( { url } )
 {
-  // console.log( url, 'page server' );
   const search = ( await url.searchParams.get( 'q' ) )?.toLowerCase();
-  for ( const item of Object.keys( items ) )
+  if ( search?.length === 0 ) searchItems.length = 0;
+  if ( search?.length > 1 )
   {
-    if ( item === search )
+    for ( const key of Object.keys( items ) )
+  {
+    if (key.includes(search) && !searchItems.includes(items[ key ]))
+    {
+      searchItems.push(items[ key ]);
+    }
+    }
+    if ( searchItems?.length > 0 )
     {
       return {
-        q: items[item]
+        q: searchItems
       }
     }
   }
   return {
-    q: `No such item: ${search}`
+    q: `No such item: ${search? search : ''}`
   }
 }

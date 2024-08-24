@@ -1,5 +1,6 @@
 
 export const items = {
-  apple: 'Some Mac',
-  samsung: 'Some Samsung'
+  apple: 'https://www.apple.com/',
+  samsung: 'https://www.samsung.com/',
+  apply: 'Apply something'
 }
