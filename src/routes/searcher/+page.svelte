@@ -3,15 +3,14 @@
 
 	import { page } from '$app/stores';
 	export let data;
-	$: console.log(data?.q);
 </script>
 
 <form action="/searcher">
 	<!-- svelte-ignore a11y-autofocus -->
 	<input
 		name="q"
-		autofocus
 		on:input={() => document.querySelector('[action="/searcher"]').requestSubmit()}
+		autofocus
 	/>
 </form>
 <ul>

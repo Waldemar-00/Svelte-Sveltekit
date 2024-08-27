@@ -2,19 +2,24 @@
 	// @ts-nocheck
 	let toggle = 'none';
 	let check = false;
+	let disabled = 'auto';
 	function toggleDisplay() {
-		if (toggle === '0') toggle = '1';
-		else toggle = '0';
+		if (toggle === '0') {
+			toggle = '1';
+			disabled = 'auto';
+		} else {
+			toggle = '0';
+			disabled = 'none';
+		}
 	}
 </script>
 
-<nav style="--toggle:{toggle}">
+<nav style="--toggle:{toggle}; --pointer:{disabled}">
 	<button class="spred" on:click={toggleDisplay}>Client Nav</button>
 	<a href="/">main</a>
 	<a href="/about/?size=43">about</a>
-	<a href="/">main</a>
-	<a href="/">main</a>
-	<a href="/">main</a>
+	<a href="/1234">1234</a>
+	<a href="/groups">groups</a>
 	<a href="/">main</a>
 	<a href="/">main</a>
 	<a href="/">main</a>
@@ -63,6 +68,7 @@
 	}
 	nav a {
 		opacity: var(--toggle);
+		pointer-events: var(--pointer);
 		padding: 0.2rem 1.5rem;
 		transition: all 700ms;
 	}
@@ -71,6 +77,7 @@
 	}
 	.login {
 		opacity: 1;
+		pointer-events: inherit;
 		position: relative;
 		left: 100px;
 	}
