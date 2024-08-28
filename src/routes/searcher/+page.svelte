@@ -1,10 +1,16 @@
 <script>
 	// @ts-nocheck
-
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	export let data;
+	let header = 'Some';
+	onMount(async () => {
+		const response = await fetch(window.location.href);
+		header = await response.headers.get('x-custom-header');
+	});
 </script>
 
+<h1>{header}</h1>
 <form action="/searcher">
 	<!-- svelte-ignore a11y-autofocus -->
 	<input

@@ -1,10 +1,10 @@
 // @ts-nocheck
-export function load ( { locals, request } )
+export async function load ( { locals, fetch} )
 {
-console.log(request);
-
+  const response = await fetch( '/request' );
 
   return {
-    message: locals?.message
+    message: locals?.message,
+    header: response.headers.get('x-custom-header')
   }
 }
