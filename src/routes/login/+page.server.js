@@ -2,11 +2,12 @@
 import { _PASS_WORD, _EMAIL} from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 import { fail } from '@sveltejs/kit';
-export const load = async ({cookies}) =>
+export const load = async ({cookies, locals}) =>
 {
   const email =  await cookies.get( 'email' );
   return {
-    email
+    email,
+    message: locals?.message
   }
 }
 export const actions = {

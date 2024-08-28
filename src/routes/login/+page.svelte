@@ -22,6 +22,7 @@
 	};
 </script>
 
+<p>{data?.message}</p>
 {#if $page.status === 401}
 	<h1 class="fail">{@html $page.form.message}</h1>
 {/if}
