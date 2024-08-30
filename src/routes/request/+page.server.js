@@ -3,13 +3,14 @@ export async function load ( { locals, fetch} )
 {
   const response = await fetch( '/request', {
     headers: {
-      'Custom-header': 'some cookies you want',
-      'Custom-header_1': 'forexample cookies'
+      'x-custom-header': 'some cookies you want',
+      'x-custom-header_1':'some cookies you want_1111'
     }
   } );
+
   return {
     message: locals?.message,
-    header: await response.headers.get( 'Custom-header' ),
-    handleFetchHearders: await response.headers.get( 'Custom-header_1' ),
+    header: await response.headers.get( 'x-custom-header' ),
+    handleFetchHearders: await response.headers.get( 'x-custom-header_1' ),
   }
 }
