@@ -1,6 +1,12 @@
 <script>
+	// @ts-nocheck
+
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	export let data;
+	onMount(() => {
+		if (navigator.connection.saveData) alert('Turn off the data-savings mode for more quick work!');
+	});
 </script>
 
 <h1>Welcome to SvelteKit</h1>

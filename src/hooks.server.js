@@ -1,4 +1,5 @@
 // @ts-nocheck
+//! RequestEvent
 export const handle = async ( { event, resolve } ) =>
 {
   event.locals.message = 'Before resolve we added this message!'
