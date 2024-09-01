@@ -4,12 +4,15 @@
 	import { page } from '$app/stores';
 	export let data;
 	let header = 'Some';
+	//! Why the code below don't return the headers?
 	onMount(async () => {
 		const response = await fetch(window.location.href);
 		header = await response.headers.get('x-custom-header');
 	});
 </script>
 
+<svelte:head><title>searcher</title></svelte:head>
+<!--for availability and SEO on each page!-->
 <h1>{header}</h1>
 <form action="/searcher">
 	<!-- svelte-ignore a11y-autofocus -->
