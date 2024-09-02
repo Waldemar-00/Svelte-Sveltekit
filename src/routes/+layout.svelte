@@ -21,7 +21,7 @@
 	<a href="/1234">1234</a>
 	<a href="/groups">groups</a>
 	<a href="/request">request</a>
-	<a href="/">main</a>
+	<a href="/svelte">svelte</a>
 	<a href="/">main</a>
 	<a href="/">main</a>
 	<a href="/searcher">searcher</a>
