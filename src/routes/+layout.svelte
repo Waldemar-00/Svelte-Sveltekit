@@ -22,7 +22,7 @@
 	<a href="/groups">groups</a>
 	<a href="/request">request</a>
 	<a href="/svelte">svelte</a>
-	<a href="/">main</a>
+	<a href="/radio">radio</a>
 	<a href="/">main</a>
 	<a href="/searcher">searcher</a>
 	<a href="/login" class="login">login/out</a>
