@@ -5,13 +5,13 @@
 	let color = 'aquamarine';
 	function foo(node, { color }) {
 		node.style.backgroundColor = color;
-		node.addEventListener('click', () => console.log(number));
+		node.addEventListener('click', () => console.log(number)); //! after onMount
 		return {
 			update({ color }) {
-				node.style.backgroundColor = color;
+				node.style.backgroundColor = color; //! when will be changed a parameter
 			},
 			destroy() {
-				node.removeEventListener('click', () => console.log(number));
+				node.removeEventListener('click', () => console.log(number)); //! after onDestroy
 			}
 		};
 	}

@@ -16,8 +16,10 @@
 
 <nav style="--toggle:{toggle}; --pointer:{disabled}">
 	<button class="spred" on:click={toggleDisplay}>Client Nav</button>
-	<a href="/">main</a>
-	<a href="/about/?size=43">about</a>
+	<!-- <a href="/">main</a>
+	<a href="/about/?size=43">about</a> -->
+	<a href="/receive">receive</a>
+	<a href="/transition">trans</a>
 	<a href="/1234">1234</a>
 	<a href="/groups">groups</a>
 	<a href="/request">request</a>
