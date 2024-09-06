@@ -1,6 +1,7 @@
 <script>
 	// @ts-nocheck
-	import { fade, crossfade } from 'svelte/transition';
+	import { crossfade } from 'svelte/transition';
+	const [send, receive] = crossfade({ duration: 1000 });
 	let db = [
 		{ done: false, do: 'deal_0', id: 100 },
 		{ done: true, do: 'deal_1', id: 200 },
@@ -17,7 +18,14 @@
 <main>
 	<ul>
 		{#each db.filter((deal) => deal.done) as deal (deal.id)}
-			<li in:fade|global={{ duration: 1000 }} out:fade={{ duration: 1000 }}>
+			<li
+				in:receive
+				out:send
+				on:introstart={() => console.log('introstart')}
+				on:introend={() => console.log('introend')}
+				on:outrostart={() => console.log('outrostart')}
+				on:outroend={() => console.log('outroend')}
+			>
 				<button on:click={() => toggleDone(deal.id)}>{deal.do}</button>
 			</li>
 		{/each}
@@ -25,7 +33,14 @@
 
 	<ul>
 		{#each db.filter((deal) => !deal.done) as deal (deal.id)}
-			<li in:fade|global={{ duration: 1000 }} out:fade={{ duration: 1000 }}>
+			<li
+				in:receive
+				out:send
+				on:introstart={() => console.log('introstart')}
+				on:introend={() => console.log('introend')}
+				on:outrostart={() => console.log('outrostart')}
+				on:outroend={() => console.log('outroend')}
+			>
 				<button on:click={() => toggleDone(deal.id)}>{deal.do}</button>
 			</li>
 		{/each}
