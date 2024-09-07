@@ -1,6 +1,8 @@
 <script>
 	// @ts-nocheck
-	import { crossfade } from 'svelte/transition';
+	import { crossfade, fade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
+	import { quintOut } from 'svelte/easing';
 	const [send, receive] = crossfade({ duration: 1000 });
 	let db = [
 		{ done: false, do: 'deal_0', id: 100 },
@@ -15,10 +17,11 @@
 	}
 </script>
 
-<main>
+<main transition:fade={{ duration: 1000 }}>
 	<ul>
 		{#each db.filter((deal) => deal.done) as deal (deal.id)}
 			<li
+				animate:flip={{ delay: 250, duration: 2000, easing: quintOut }}
 				in:receive
 				out:send
 				on:introstart={() => console.log('introstart')}
@@ -34,6 +37,7 @@
 	<ul>
 		{#each db.filter((deal) => !deal.done) as deal (deal.id)}
 			<li
+				animate:flip={{ delay: 250, duration: 500, easing: quintOut }}
 				in:receive
 				out:send
 				on:introstart={() => console.log('introstart')}
