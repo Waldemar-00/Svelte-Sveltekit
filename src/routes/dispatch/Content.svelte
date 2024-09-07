@@ -7,9 +7,14 @@
 		});
 		console.log(isEvent);
 	}
+	export let value;
 </script>
 
 <h1>Something important</h1>
+
+<input type="text" {value} />
+<br />
+<br />
 <button on:click={handlerDispatcher}>dispatch</button>
 
 <style>
@@ -18,7 +23,7 @@
 		border: none;
 		border-radius: 0.5rem;
 		cursor: pointer;
-		background-color: rgb(28, 123, 91);
-		color: #fff;
+		background-color: var(--bgc-color);
+		color: var(--main-color);
 	}
 </style>
