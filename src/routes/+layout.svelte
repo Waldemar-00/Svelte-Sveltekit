@@ -18,6 +18,7 @@
 	<button class="spred" on:click={toggleDisplay}>Client Nav</button>
 	<!-- <a href="/">main</a>
 	<a href="/about/?size=43">about</a> -->
+	<a href="/slots">slots</a>
 	<a href="/dispatch">dispatch</a>
 	<a href="/receive">receive</a>
 	<a href="/transition">trans</a>
@@ -27,7 +28,7 @@
 	<a href="/svelte">svelte</a>
 	<!-- <a href="/radio">radio</a> -->
 	<a href="/use_action">use_action</a>
-	<a href="/searcher">searcher</a>
+	<!-- <a href="/searcher">searcher</a> -->
 	<a href="/login" class="login">login/out</a>
 </nav>
 <slot></slot>
