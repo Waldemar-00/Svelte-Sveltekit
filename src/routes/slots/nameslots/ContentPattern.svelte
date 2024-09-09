@@ -7,7 +7,7 @@
 		header: 'Truth header',
 		footer: 'Truth footer'
 	};
-	console.log($$slots.default);
+	//console.log($$slots.default);
 </script>
 
 <div>
