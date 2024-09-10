@@ -14,25 +14,37 @@
 	}
 </script>
 
-<nav style="--toggle:{toggle}; --pointer:{disabled}">
-	<button class="spred" on:click={toggleDisplay}>Client Nav</button>
-	<a href="/">main</a>
-	<a href="/about/?size=43">about</a>
-	<a href="/slots">slots</a>
-	<a href="/dispatch">dispatch</a>
-	<a href="/receive">receive</a>
-	<a href="/transition">trans</a>
-	<a href="/1234">1234</a>
-	<a href="/groups">groups</a>
-	<a href="/request">request</a>
-	<a href="/svelte">svelte</a>
-	<a href="/radio">radio</a>
-	<a href="/use_action">use_action</a>
-	<a href="/searcher">searcher</a>
-	<a href="/special">special elems</a>
-	<a href="/login" class="login">login/out</a>
-</nav>
-<slot></slot>
+<main>
+	<nav style="--toggle:{toggle}; --pointer:{disabled}">
+		<button class="spred" on:click={toggleDisplay}>Client Nav</button>
+		<a href="/">main</a>
+		<a href="/s_window">main</a>
+		<a href="/about/?size=43">about</a>
+		<a href="/slots">slots</a>
+		<a href="/dispatch">dispatch</a>
+		<a href="/receive">receive</a>
+		<a href="/transition">trans</a>
+		<a href="/1234">1234</a>
+		<a href="/groups">groups</a>
+		<a href="/request">request</a>
+		<a href="/svelte">svelte</a>
+		<a href="/radio">radio</a>
+		<a href="/use_action">use_action</a>
+		<a href="/searcher">searcher</a>
+		<a href="/special">special elems</a>
+		<a href="/">main</a>
+		<a href="/">main</a>
+		<a href="/">main</a>
+		<a href="/">main</a>
+		<a href="/">main</a>
+		<a href="/">main</a>
+		<a href="/">main</a>
+		<a href="/login" class="login">login/out</a>
+	</nav>
+	<div>
+		<slot></slot>
+	</div>
+</main>
 
 <!-- <dialog>
 	<form action="">
@@ -48,9 +60,15 @@
 </dialog> -->
 
 <style>
+	main {
+		display: inline-flex;
+		justify-content: flex-start;
+		gap: 5vw;
+	}
 	nav {
 		display: inline-flex;
-		align-items: center;
+		flex-direction: column;
+
 		flex-wrap: wrap;
 		gap: 1rem;
 		position: relative;
@@ -58,7 +76,7 @@
 		top: 0;
 		background-color: bisque;
 		border-radius: 2rem;
-		width: 99vw;
+		width: 12rem;
 	}
 	:global(a) {
 		text-decoration: none;
@@ -84,7 +102,5 @@
 	.login {
 		opacity: 1;
 		pointer-events: inherit;
-		position: relative;
-		left: 100px;
 	}
 </style>
