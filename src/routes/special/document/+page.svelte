@@ -21,6 +21,7 @@
 	}
 </script>
 
+<svelte:head><title>svelte:document</title></svelte:head>
 <h1>svelte:document</h1>
 <svelte:document
 	bind:fullscreenElement

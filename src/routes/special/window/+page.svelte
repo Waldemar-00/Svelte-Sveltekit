@@ -8,5 +8,6 @@
 	}
 </script>
 
+<svelte:head><title>svelte:window</title></svelte:head>
 <h1>svelte:window</h1>
 <svelte:window on:resize={handleResize} />

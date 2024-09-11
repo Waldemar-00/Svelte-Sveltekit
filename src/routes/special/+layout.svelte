@@ -1,6 +1,7 @@
 <nav>
 	<a href="/special/window">svelte:window</a>
 	<a href="/special/document">svelte:document</a>
+	<a href="/special/body">svelte:body</a>
 </nav>
 <slot></slot>
 
