@@ -2,10 +2,14 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	function handlerDispatcher() {
-		const isEvent = dispatch('customEvent', {
-			message: 'You can create a custom event via createEventDispatcher from Svelte'
-		});
-		console.log(isEvent);
+		const isEvent = dispatch(
+			'customEvent',
+			{
+				message: 'You can create a custom event via createEventDispatcher from Svelte'
+			},
+			{ cancelable: true }
+		);
+		if (isEvent) console.log(isEvent);
 	}
 	export let value;
 </script>
