@@ -1,5 +1,7 @@
 <script>
 	// @ts-nocheck
+	import { setContext, getContext } from 'svelte';
+	import { writable } from 'svelte/store';
 	let toggle = 'none';
 	let check = false;
 	let disabled = 'auto';
@@ -12,13 +14,16 @@
 			disabled = 'none';
 		}
 	}
+	setContext('commonMessage', 'I am context for all routes!');
+	let commonMessage = getContext('commonMessage');
+	const changingContext = writable(setContext('changingMessage', 'I can change!!!'));
+	let getChangingMessage = getContext('changingMessage');
 </script>
 
 <main>
 	<nav style="--toggle:{toggle}; --pointer:{disabled}">
 		<button class="spred" on:click={toggleDisplay}>Client Nav</button>
 		<a href="/">main</a>
-		<a href="/s_window">main</a>
 		<a href="/about/?size=43">about</a>
 		<a href="/slots">slots</a>
 		<a href="/dispatch">dispatch</a>
@@ -32,19 +37,18 @@
 		<a href="/use_action">use_action</a>
 		<a href="/searcher">searcher</a>
 		<a href="/special">special elems</a>
-		<a href="/">main</a>
-		<a href="/">main</a>
-		<a href="/">main</a>
-		<a href="/">main</a>
-		<a href="/">main</a>
-		<a href="/">main</a>
-		<a href="/">main</a>
 		<a href="/login" class="login">login/out</a>
 	</nav>
 	<div>
 		<slot></slot>
 	</div>
 </main>
+<h3>{commonMessage}</h3>
+<h2>{$changingContext}</h2>
+<h2>{getChangingMessage}</h2>
+<button on:click={() => changingContext.update((m) => (m = 'I have been changed!!!'))}
+	>Change writable context</button
+>
 
 <!-- <dialog>
 	<form action="">
@@ -64,6 +68,9 @@
 		display: inline-flex;
 		justify-content: flex-start;
 		gap: 5vw;
+	}
+	h3 {
+		color: green;
 	}
 	nav {
 		display: inline-flex;

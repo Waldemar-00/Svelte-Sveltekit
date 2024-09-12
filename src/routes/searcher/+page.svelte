@@ -1,18 +1,10 @@
 <script>
 	// @ts-nocheck
-	// import { onMount } from 'svelte';
+	import { getContext, setContext } from 'svelte';
 	import { browser } from '$app/environment';
 	import { page, navigating, updated } from '$app/stores';
-	// console.log($navigating);
-	// console.log($updated);
-
 	export let data;
 	let header = 'Some';
-	//! Why the code below don't return the headers?
-	// onMount(async () => {
-	// 	const response = await fetch(window.location.href);
-	// 	header = await response.headers.get('x-custom-header');
-	// });
 	async function inBrowser() {
 		const response = await fetch(window.location.href);
 		header = await response.headers.get('x-custom-header');
@@ -20,6 +12,9 @@
 	$: if (browser) {
 		inBrowser();
 	}
+	setContext('commonMessage', 'I changed the common message');
+	//!Context will be changed only for this component which it is binding!!!!!!!!!!!
+	let commonMessage = getContext('commonMessage');
 </script>
 
 <svelte:head
@@ -31,7 +26,6 @@
     of salt that you'll keep coming back for."
 	/></svelte:head
 >
-<!--for availability and SEO on each page!-->
 <h1>{header}</h1>
 <form action="/searcher">
 	<!-- svelte-ignore a11y-autofocus -->
@@ -50,9 +44,13 @@
 		<li><h3>{data?.q}</h3></li>
 	{/if}
 </ul>
+<h2>{commonMessage}</h2>
 
 <style>
 	form {
 		margin: 4rem auto;
+	}
+	h2 {
+		color: red;
 	}
 </style>

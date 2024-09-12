@@ -15,13 +15,17 @@
 	];
 </script>
 
+<svelte:head><title>Named slotes</title></svelte:head>
 <h1>Name slots</h1>
 <ContentPattern let:content>
 	<h2 slot="header" let:header>{header}</h2>
 	<p>
 		{content}
 	</p>
-	<h2 slot="footer" let:footer>{footer}</h2>
+	<svelte:fragment slot="footer" let:footer>
+		<h2>{footer}</h2>
+		<h3>svelte:fragment</h3>
+	</svelte:fragment>
 </ContentPattern>
 <!--How it does work???????????????????-->
 <!-- <ul>
