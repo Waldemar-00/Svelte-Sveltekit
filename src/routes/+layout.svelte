@@ -24,6 +24,7 @@
 	<nav style="--toggle:{toggle}; --pointer:{disabled}">
 		<button class="spred" on:click={toggleDisplay}>Client Nav</button>
 		<a href="/">main</a>
+		<a href="/tick">tick</a>
 		<a href="/stores">stores</a>
 		<a href="/about/?size=43">about</a>
 		<a href="/slots">slots</a>
