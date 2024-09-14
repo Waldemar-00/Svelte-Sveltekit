@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 
-	import { readable } from 'svelte/store';
+	import { readable, get } from 'svelte/store';
 	const time = readable(0, (set) => {
 		set(`${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`);
 		const interval = setInterval(() => {
@@ -9,6 +9,7 @@
 		}, 1000);
 		return () => clearInterval(interval);
 	});
+	const startTime = get(time);
 	const clock = readable('tick', (set, update) => {
 		const interval = setInterval(() => {
 			update((sound) => (sound === 'tick' ? 'tock' : 'tick'));
@@ -20,3 +21,4 @@
 <h1>Readable</h1>
 
 <h2>Time: {$time} {$clock}</h2>
+<h2>Start time: {startTime}</h2>
