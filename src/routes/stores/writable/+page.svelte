@@ -21,6 +21,7 @@
 		const endA = get(store);
 		alert(endA.a);
 	});
+	$store.a += 1;
 </script>
 
 <h1>Writable</h1>
