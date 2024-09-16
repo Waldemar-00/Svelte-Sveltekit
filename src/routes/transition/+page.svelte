@@ -2,10 +2,14 @@
 	// @ts-nocheck
 
 	import { fade, fly } from 'svelte/transition';
+	import { linear, quintOut } from 'svelte/easing';
 </script>
 
-<main in:fade={{ duration: 2000 }} out:fade={{ duration: 1000 }}>
-	<h1 in:fly={{ x: -100, duration: 500, delay: 2000 }}>Transition</h1>
+<!--out:fade={{ duration: 1000 }}-->
+<main in:fade={{ duration: 2000, easing: linear }}>
+	<h1 in:fly={{ x: -100, duration: 500, delay: 2000, easing: quintOut }}>
+		<a href="/transition/plus">Transition +</a>
+	</h1>
 	<h2 in:fly={{ y: 400, duration: 1800 }}>Transition</h2>
 	<h3 in:fly={{ y: 400, duration: 1600 }}>Transition</h3>
 	<h4 in:fly={{ y: 400, duration: 1400 }}>Transition</h4>
