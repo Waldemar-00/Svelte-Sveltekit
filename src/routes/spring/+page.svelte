@@ -25,7 +25,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		left: 0;
+		left: 12rem;
 		top: 0;
 	}
 	circle {
