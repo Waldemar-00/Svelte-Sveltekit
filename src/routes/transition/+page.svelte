@@ -9,6 +9,8 @@
 <main in:fade={{ duration: 2000, easing: linear }}>
 	<h1 in:fly={{ x: -100, duration: 500, delay: 2000, easing: quintOut }}>
 		<a href="/transition/plus">Transition +</a>
+		<hr />
+		<a href="/transition/crossfade">Crossfade</a>
 	</h1>
 	<h2 in:fly={{ y: 400, duration: 1800 }}>Transition</h2>
 	<h3 in:fly={{ y: 400, duration: 1600 }}>Transition</h3>
