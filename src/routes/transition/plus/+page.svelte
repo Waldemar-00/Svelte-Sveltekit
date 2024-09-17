@@ -15,8 +15,11 @@
 	<li><h2>Hello Hello Hello</h2></li>
 	<li><h2>Hello, Great SLIDE!</h2></li>
 </ul>
-
+<a href="/transition/plus/scale">Scale</a>
 <!--default amount in px, you can use 'rem' -->
+<hr />
+<a href="/transition/plus/draw">Draw</a>
+<hr />
 <a href="/transition">Back to transition</a>
 
 <style>
