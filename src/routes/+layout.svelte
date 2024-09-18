@@ -24,6 +24,7 @@
 	<nav style="--toggle:{toggle}; --pointer:{disabled}">
 		<button class="spred" on:click={toggleDisplay}>Client Nav</button>
 		<a href="/">main</a>
+		<a href="/flip">flip</a>
 		<a href="/tweened">tweened</a>
 		<a href="/interpolate">interpolate</a>
 		<a href="/spring">spring</a>
